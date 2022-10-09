@@ -24,6 +24,10 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <!--- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="js/supabaseClient.js"></script>
 </head>
 
 <body>
@@ -92,12 +96,7 @@
     <div class="container-fluid page-header">
         <div class="container">
             <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
-                <h3 class="display-4 text-white text-uppercase">History of Mysuru</h3>
-                <div class="d-inline-flex text-white">
-                    <p class="m-0 text-uppercase"><a class="text-white" href="">Home</a></p>
-                    <i class="fa fa-angle-double-right pt-1 px-3"></i>
-                    <p class="m-0 text-uppercase">History of Mysuru</p>
-                </div>
+                <h3 id="posttitle" class="display-4 text-white text-uppercase"></h3>
             </div>
         </div>
     </div>
@@ -161,36 +160,8 @@
     <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="row">
-                <div class="col-lg-12">
-                    <!-- Blog Detail Start -->
-                    <div class="pb-3">
-                        <div class="blog-item">
-                            <div class="position-relative">
-                                <img class="img-fluid w-100" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/40/63/77/the-palace-after-the.jpg?w=1200&h=1200&s=1" alt="">
-                                <div class="blog-date">
-                                    <h6 class="font-weight-bold mb-n1">25</h6>
-                                    <small class="text-white text-uppercase">Sep</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-white mb-3" style="padding: 30px;">
-                            <div class="d-flex mb-3">
-                                <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
-                                <span class="text-primary px-2">|</span>
-                                <a class="text-primary text-uppercase text-decoration-none" href="">Tours & Travel</a>
-                            </div>
-                            <h2 class="mb-3">History of Mysore Palace</h2>
-                            <p>The Mysore Palace, also known as Amba Vilas Palace, is a historical palace and a royal residence (house). It is located in Mysore, Karnataka. It used to be the official residence of the Wadiyar dynasty and the seat of the Kingdom of Mysore. The palace is in the centre of Mysore, and faces the Chamundi Hills eastward. Mysore is commonly described as the 'City of Palaces', and there are seven palaces including this one. However, the Mysore Palace refers specifically to the one within the new fort.</p>
-                            <p>The land on which the palace now stands was originally known as mysuru (literally, "citadel"). Yaduraya built the first palace inside the Old Fort in the 14th century, which was set ablaze and reconstructed multiple times. The Old Fort was built of wood and thus easily caught fire, while the current fort was built of stone, bricks and wood. The current structure was constructed between 1897 and 1912, after the Old Palace burnt down, the current structure is also known as the New Fort. Mysore Palace is one of the most famous tourist attractions in India, after the Taj Mahal, with more than six million annual visitors.</p>
-                            <img class="img-fluid w-50 float-left mr-4 mb-2" src="https://gumlet.assettype.com/newsgram%2Fimport%2Fwp-content%2Fuploads%2F2022%2F03%2F020320221646219765.jpeg?auto=format%2Ccompress&fit=max&format=webp&w=576&dpr=1.0">
-                            <p>Mysore was the capital of the Kingdom of Mysore until 1950, except in the 18th century when Haidar Ali and Tipu Sultan were the defacto rulers for a 40-year period. Mysore state continued to be ruled by Maharaja H.H. Jaya Chamaraja Wadiyar till Mysore became part of Indian Republic on 26-1-1950. And now the Mysore city is the headquarters of Mysore District. Mysore city is also known as the 'City of Palaces' and the 'Ivory City'. The famous Chamundi Hill, which is mythological associated with the name of the city, is to its southeast. Mysore was ruled by the demon-king Mahishasura, he was a buffalo-headed monster. Hence, came the name of this place - Mahishuru, the city of demon Mahisha. The demon was killed by the Goddess Chamundeshwari, whose temple is situated atop the Chamundi Hills. Mahishuru later became Mahisuru and finally came to be called Maisuru, its present name in the Kannada language. The anglicised form of the name is Mysore.</p>
-                            <img class="img-fluid w-50 float-right ml-4 mb-2" src="https://media.news9live.com/h-upload/2021/11/20/71127-tipu-sultan.jpg">
-                            <p>The earliest mention of Mysore or Mahishur historically is referred to the time of King Ashoka in 245 B.C. However, it is only from the 10th Century that a proper and consistent line of history of Mysore can be traced. The Ganga Dynasty appeared in the scene of the Mysore of History in the 2nd Century and ruled Mysore till 1004. The next dynasty who left their mark on the pages of the History of Mysore was the Cholas who ruled the region for about a Century. The Cholas were followed by the Chalukyas and the Hoysalas. A number of inscriptions from the 11th and 12th Centuries are found in Mysore, which provides clue about the happenings in the region. History of Mysore points out that it was in 1399 A.D that the Yadu dynasty came to power in Mysore. A feudatory of the Vijaynagar Empire, the Yadu dynasty contributed significantly to the development of Mysore. Bettada Chamaraja Wodeyar, the raja of Mysore rebuilt the fort of Mysore and made his headquarters and called the city 'Mahishuru Nagara' meaning the city of Mahishur. The year 1610 was a land mark in the history of Mysore as it was in this year that Raja Waidyar shifted the capital from Mysore to Srirangapatnam. From the year 1761 to 1799 Mysore was ruled by Hyder Ali and his son Tipu Sultan. Mysore remained the second most important city till the death of Tipu Sultan. After the defeat of Tipu Sultan in the Anglo Mysore War the History of Mysore once again took a sharp turn.</p>
-                            <img class="img-fluid w-50 float-left mr-4 mb-2" src="https://gumlet.assettype.com/swarajya%2F2019-10%2F83b9cddd-88e5-465f-98d7-07c8d60c5ad2%2Fportrait_of_Maharajah_jcw.jpg?q=75&auto=format%2Ccompress&w=400&dpr=2.6">
-                            <p>As the History of Mysore went under the control of the Britishers, they placed a minor Prince Krishnaraja Wodeyar on the throne of Mysore. It was practically from this time that the city started to grow. During the reign of Mummadi Krishna Raja Wodeyar(Krishna Raja Wodeyar III) the town of Mysore expanded and moved beyond the walls of the fort. H.H. Chamaraja Wodeyar adopted son of Mummadi Krishna Raja Wodeyar , succeeded him and ruled Mysore Kingdom form 1881 to 1894. H.H. Nalvadi Krishna Raja Wodeyar(Krishnaraja Wodeyar IV) eldest son Mummadi Krishna Raja Wodeyar, ruled mysore from 1895-1940 and developed Mysore into a beautiful city with excellent planning. Under his reign Mysore became famous for its wide roads, magnificent building and elegant parks. During Nalvadi Krishna Raja Wodeyar's minority his mother H.H. Vani Vilas Sannidhana ruled as regent from 1895-1902. Even after British India gained Independent dominion status on 15-8-1947, Mysore continued as a Sovereign State under the Maharaja H.H. Jaya Chamaraja Wodeyar albeit with a responsible Government headed by Mr. K.C. Reddy as the Chief Minister. However, the Constituent Assembly of Mysore decided to adopt the Constitution of India and on 26-1-1950, Mysore merged with the Republic of India as a Part -B State. But the Maharaja Continued as the Rajpramukh of the State as per Art. 366(21) of the Constitution.</p>
-                        </div>
-                    </div>
-                    <!-- Blog Detail End -->
+                <div id="container" class="col-lg-12">
+                    <i id="accounti" style=" font-size: 5vh" class=""></i>
     
                     <!-- Comment List Start -->
                     <!-- <div class="bg-white" style="padding: 30px; margin-bottom: 30px;">
@@ -461,6 +432,54 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>
+        
+
+        window.onload = async function () {
+            var title = document.getElementById('posttitle');
+            var accounti = document.getElementById('accounti');
+            const queryString = window.location.search;
+            const postTitle = queryString.replace('?', '');
+            var con = document.getElementById('container'); 
+            var condata = ``;
+
+            accounti.className = "fa fa-spinner fa-spin";
+
+            let { data, error } = await _supabase
+            .from('posts')
+            .select("*")
+            .eq('title', postTitle);
+            if(error) {
+                alert(error.message);
+                accounti.className = "";
+            }
+            if(data) {
+                console.log(data);
+                title.innerHTML = data[0].title;
+                condata = `
+                <div class="pb-3">
+                    <div class="blog-item">
+                        <div class="position-relative">
+                            <img class="img-fluid w-100" id="img" src='${data[0].image}' alt="">
+                            <div style="padding: 30px 50px 30px 50px" class="blog-date">
+                                <h6 class="font-weight-bold mb-n1" id="postdate">${new Date(data[0].created_at).toLocaleString('en-us',{month:'short', day:'numeric', year:'numeric'})}</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white mb-3" style="padding: 30px;">
+                        <div class="d-flex mb-3">
+                            <a class="text-primary text-uppercase text-decoration-none" id="name" href="">${data[0].name}</a>
+                        </div>
+                        <h2 mb-3">${data[0].title}</h2>
+                        <p id="postdesc">${data[0].description}</p>
+                    </div>
+                </div>`
+                con.innerHTML = condata;
+                accounti.className = "";
+            }
+
+        }
+    </script>
 </body>
 
 </html>

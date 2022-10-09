@@ -24,6 +24,10 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <!--- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="js/supabaseClient.js"></script>
 </head>
 
 <body>
@@ -62,6 +66,7 @@
     </div>
     <!-- Topbar End -->
 
+
     <!-- Navbar Start -->
     <div class="container-fluid position-relative nav-bar p-0">
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
@@ -76,10 +81,10 @@
                     <div class="navbar-nav ml-auto py-0">
                         <a href="index.html" class="nav-item nav-link">Home</a>
                         <a href="places.html" class="nav-item nav-link">Places</a>
-                        <a href="events.html" class="nav-item nav-link active">Events</a>
+                        <a href="events.html" class="nav-item nav-link">Events</a>
                         <a href="blogs.html" class="nav-item nav-link">Blog</a>
                         <a href="rental.html" class="nav-item nav-link">Services</a>
-                        <a href="account.html?login" class="nav-item nav-link">Account</a>
+                        <a href="account.html?login" class="nav-item nav-link active">Account</a>
                     </div>
                 </div>
             </nav>
@@ -92,79 +97,41 @@
     <div class="container-fluid page-header">
         <div class="container">
             <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
-                <h3 class="display-4 text-white text-uppercase">Events of Mysore</h3>
+                <h3 class="display-4 text-white text-uppercase">Account</h3>
                 <div class="d-inline-flex text-white">
                     <p class="m-0 text-uppercase"><a class="text-white" href="">Home</a></p>
                     <i class="fa fa-angle-double-right pt-1 px-3"></i>
-                    <p class="m-0 text-uppercase">events</p>
+                    <p class="m-0 text-uppercase">Account</p>
                 </div>
             </div>
         </div>
     </div>
     <!-- Header End -->
-    
 
     <!-- Destination Start -->
     <div class="container-fluid py-5">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
-                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Events</h6>
-                <h1>Explore Top Events of Mysore</h1>
+                <h6 class="text-primary text-uppercase" id="accounttxt" style="letter-spacing: 5px;"></h6>
             </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img class="img-fluid" src="https://karnataka.b-cdn.net/wp-content/uploads/2013/09/dasara-jamboo-savari.jpg" alt="">
-                        <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h5 class="text-white">MYSORE DASARA-JAMBOO SAVARI</h5>
-                            <span>OCT 4-6</span>
-                            
-                        </a>
+            <div class="container-fluid text-center">
+                <div style="margin-bottom: 20px" class="container col-md-6">
+                    <input type="email" id="email" class="form-control p-4 datetimepicker-input" placeholder="Email" />
+                </div>
+                <div style="margin-bottom: 20px" class="container col-md-6">
+                    <div class="mb-3 mb-md-0">
+                        <div data-target-input="nearest">
+                            <input type="text" id="pwd" class="form-control p-4 datetimepicker-input" placeholder="Password" />
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img class="img-fluid" src="" alt="">
-                        <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h5 class="text-white"> </h5>
-                           
-                        </a>
-                    </div>
+                <div style="margin-bottom: 20px" class="container col-md-6">
+                    <button onclick="return account();" class="btn btn-primary btn-block" type="submit" style="height: 47px; margin-top: -2px;"><i id="accounti" style=" font-size: 3vh" class="">Submit</i></button>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img class="img-fluid" src="" alt="">
-                        <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h5 class="text-white"></h5>
-                            <span></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img class="img-fluid" src="" alt="">
-                        <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h5 class="text-white"></h5>
-                            <span></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img class="img-fluid" src="" alt="">
-                        <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h5 class="text-white"></h5>
-                            <span></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img class="img-fluid" src="" alt="">
-                        <a class="destination-overlay text-white text-decoration-none" href="">
-                            <h5 class="text-white"></h5>
-                            <span></span>
-                        </a>
+                <div class="container col-md-6 text-center">
+                    <div class="container row">
+                        <p style="display: inline"> Do not have an account? </p>
+                        <a id="otacccount" style="margin-left: 5px"></a>
                     </div>
                 </div>
             </div>
@@ -260,6 +227,79 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>
+        const queryString = window.location.search;
+
+        window.onload = async function () {
+            
+            var otacccount = document.getElementById('otacccount');
+            var accounttxt = document.getElementById('accounttxt');
+            
+            const user = await _supabase.auth.user();
+
+            if(user) {
+                window.location.href = "dashboard/index.html";
+
+            }
+
+            console.log(queryString);
+
+            if(queryString == "?create-account"){
+                otacccount.href = "account.html?login";
+                otacccount.innerHTML = "Signin";
+                accounttxt.innerHTML = "Create Account";
+            }else {
+                otacccount.href = "account.html?create-account";
+                otacccount.innerHTML = "Signup";
+                accounttxt.innerHTML = "Login";
+            }
+        }
+
+        async function account() {
+            var email = document.getElementById('email').value;
+            var pwd = document.getElementById('pwd').value;
+            var accounti = document.getElementById('accounti');
+
+           if(email == "" || pwd == ""){
+               alert("Please fill all the fields");
+           }else { 
+                accounti.className = "fa fa-spinner fa-spin";
+                accounti.innerText = "";
+                if(queryString == "?create-account"){
+                    const { user, session, error } = await _supabase.auth.signUp({
+                        email: email,
+                        password: pwd,
+                    });
+                    if(error) {
+                        accounti.className = "fa fa-spinner fa-spin";
+                        accounti.innerText = "";
+                        alert(error.message);
+                    }
+                    if(user) {
+                        console.log(user);
+                        alert("Account created successfully");
+                        window.location.href = "dashboard/index.html";
+                    }
+                }else {
+                    const { user, session, error } = await _supabase.auth.signIn({
+                        email: email,
+                        password: pwd,
+                    })
+                    if(error) {
+                        accounti.className = "";
+                        accounti.innerText = "Submit";
+                        alert(error.message);
+                    }
+                    if(user) {
+                        console.log(user);
+                        window.location.href = "dashboard/index.html";
+                    }
+                }
+           }
+
+        }
+
+    </script>
 </body>
 
 </html>

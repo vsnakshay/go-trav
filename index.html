@@ -76,20 +76,11 @@
                 <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                     <div class="navbar-nav ml-auto py-0">
                         <a href="index.html" class="nav-item nav-link active">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About</a>
-                        <a href="service.html" class="nav-item nav-link">Events</a>
-                        <a href="package.html" class="nav-item nav-link">Tour Packages</a>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu border-0 rounded-0 m-0">
-                                <a href="blog.html" class="dropdown-item">Blog Grid</a>
-                                <a href="single.html" class="dropdown-item">Blog Detail</a>
-                                <a href="destination.html" class="dropdown-item">Destination</a>
-                                <a href="guide.html" class="dropdown-item">Travel Guides</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                            </div>
-                        </div>
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        <a href="places.html" class="nav-item nav-link">Places</a>
+                        <a href="events.html" class="nav-item nav-link">Events</a>
+                        <a href="blogs.html" class="nav-item nav-link">Blog</a>
+                        <a href="rental.html" class="nav-item nav-link">Services</a>
+                        <a href="account.html?login" class="nav-item nav-link">Account</a>
                     </div>
                 </div>
             </nav>
@@ -285,7 +276,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2">
-                        <img class="img-fluid" src="https://wayfarerxp.com/wp-content/uploads/2019/03/Mysore_zoo-Upload.jpg" alt="">
+                        <img class="img-fluid" src="img/dest2.jpg" alt="">
                         <a class="destination-overlay text-white text-decoration-none" href="">
                             <h5 class="text-white">Mysuru Zoo</h5>
                             <!-- <span>100 Cities</span> -->
@@ -331,7 +322,7 @@
             </div>
             <div class="d-flex flex-column align-items-center justify-content-center">
                 <div class="p-3" style="max-width: 900px;">
-                    <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Show More</a>
+                    <a href="places.html" class="btn btn-primary py-md-3 px-md-5 mt-2">Show More</a>
                 </div>
             </div>
         </div>
@@ -555,7 +546,20 @@
 
 
     <!-- Team Start -->
-    <div class="container-fluid py-5">
+    <div id="dest" class="container-fluid py-5">
+        <div class="container pt-5 pb-3">
+            <div class="text-center mb-3 pb-3">
+                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Events</h6>
+                <h1>Explore the upcoming events of Mysuru</h1>
+            </div>
+            <div class="d-flex flex-column align-items-center justify-content-center">
+                <div class="p-3" style="max-width: 900px;">
+                    <a href="events.html" class="btn btn-primary py-md-3 px-md-5 mt-2">Explore</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="container-fluid py-5">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
                 <h1>Our Team</h1>
@@ -573,8 +577,8 @@
                             </div>
                         </div>
                         <div class="text-center py-4">
-                            <h5 class="text-truncate">Guide Name</h5>
-                            <p class="m-0">Designation</p>
+                            <h5 class="text-truncate">Mohith</h5>
+                            <p class="m-0">Developer</p>
                         </div>
                     </div>
                 </div>
@@ -590,8 +594,8 @@
                             </div>
                         </div>
                         <div class="text-center py-4">
-                            <h5 class="text-truncate">Guide Name</h5>
-                            <p class="m-0">Designation</p>
+                            <h5 class="text-truncate">Vinay</h5>
+                            <p class="m-0">Developer</p>
                         </div>
                     </div>
                 </div>
@@ -631,12 +635,12 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Team End -->
 
 
     <!-- Testimonial Start -->
-    <div class="container-fluid py-5">
+    <!-- <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="text-center mb-3 pb-3">
                 <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Testimonial</h6>
@@ -681,7 +685,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Testimonial End -->
 
 
@@ -692,8 +696,8 @@
                 <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Our Blog</h6>
                 <h1>Latest From Our Blog</h1>
             </div>
-            <div class="row pb-3">
-                <div class="col-lg-4 col-md-6 mb-4 pb-2">
+            <div class="flex items-center">
+                <div class="container col-lg-4 col-md-6 mb-4 pb-2">
                     <div class="blog-item">
                         <div class="position-relative">
                             <img class="img-fluid w-100" src="https://i0.wp.com/nammamysore.com/wp-content/uploads/2020/05/Old-Mysore-Palace.jpg?fit=600%2C430&ssl=1" alt="">
@@ -705,49 +709,22 @@
                         <div class="bg-white p-4">
                             <div class="d-flex mb-2">
                                 <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
-                                <span class="text-primary px-2">|</span>
-                                <a class="text-primary text-uppercase text-decoration-none" href="">Tours & Travel</a>
                             </div>
                             <a class="h5 m-0 text-decoration-none" href="history.html">History of Mysuru</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4 pb-2">
-                    <div class="blog-item">
-                        <div class="position-relative">
-                            <img class="img-fluid w-100" src="img/blog-2.jpg" alt="">
-                            <div class="blog-date">
-                                <h6 class="font-weight-bold mb-n1">01</h6>
-                                <small class="text-white text-uppercase">Jan</small>
-                            </div>
-                        </div>
-                        <div class="bg-white p-4">
-                            <div class="d-flex mb-2">
-                                <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
-                                <span class="text-primary px-2">|</span>
-                                <a class="text-primary text-uppercase text-decoration-none" href="">Tours & Travel</a>
-                            </div>
-                            <a class="h5 m-0 text-decoration-none" href="">Dolor justo sea kasd lorem clita justo diam amet</a>
-                        </div>
+            </div>
+            <div class="container row d-flex align-items-center justify-content-center">
+                
+                <div class="d-flex flex-column align-items-center justify-content-center">
+                    <div class="p-3" style="max-width: 900px;">
+                        <a href="blogs.html" class="btn btn-secondary py-md-3 px-md-5 mt-2">Explore More</a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4 pb-2">
-                    <div class="blog-item">
-                        <div class="position-relative">
-                            <img class="img-fluid w-100" src="img/blog-3.jpg" alt="">
-                            <div class="blog-date">
-                                <h6 class="font-weight-bold mb-n1">01</h6>
-                                <small class="text-white text-uppercase">Jan</small>
-                            </div>
-                        </div>
-                        <div class="bg-white p-4">
-                            <div class="d-flex mb-2">
-                                <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
-                                <span class="text-primary px-2">|</span>
-                                <a class="text-primary text-uppercase text-decoration-none" href="">Tours & Travel</a>
-                            </div>
-                            <a class="h5 m-0 text-decoration-none" href="">Dolor justo sea kasd lorem clita justo diam amet</a>
-                        </div>
+                <div class="d-flex flex-column align-items-center justify-content-center">
+                    <div class="p-3" style="max-width: 900px;">
+                        <a href="account.html?create-account" class="btn btn-primary py-md-3 px-md-5 mt-2">Create your own Blog</a>
                     </div>
                 </div>
             </div>
@@ -755,7 +732,6 @@
     </div>
     <!-- Blog End -->
 
-    <!-- Footer Start -->
     <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;">
         <div class="row pt-5">
             <div class="col-lg-3 col-md-6 mb-5">
@@ -774,29 +750,25 @@
             <div class="col-lg-3 col-md-6 mb-5">
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Our Services</h5>
                 <div class="d-flex flex-column justify-content-start">
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>About</a>
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Destination</a>
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Events</a>
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Packages</a>
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Guides</a>
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Testimonial</a>
-                    <a class="text-white-50" href="#"><i class="fa fa-angle-right mr-2"></i>Blog</a>
+                    <a class="text-white-50 mb-2" href="places.html"><i class="fa fa-angle-right mr-2"></i>Places</a>
+                    <a class="text-white-50 mb-2" href="events.html"><i class="fa fa-angle-right mr-2"></i>Events</a>
+                    <a class="text-white-50 mb-2" href="rental.html"><i class="fa fa-angle-right mr-2"></i>Services</a>
+                    <a class="text-white-50 mb-2" href="blogs.html"><i class="fa fa-angle-right mr-2"></i>Blog</a>
+                    <a class="text-white-50 mb-2" href="account.html?login"><i class="fa fa-angle-right mr-2"></i>Account</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Usefull Links</h5>
                 <div class="d-flex flex-column justify-content-start">
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>About</a>
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Destination</a>
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Services</a>
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Packages</a>
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Guides</a>
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Testimonial</a>
-                    <a class="text-white-50" href="#"><i class="fa fa-angle-right mr-2"></i>Blog</a>
+                    <a class="text-white-50 mb-2" href="places.html"><i class="fa fa-angle-right mr-2"></i>Places</a>
+                    <a class="text-white-50 mb-2" href="events.html"><i class="fa fa-angle-right mr-2"></i>Events</a>
+                    <a class="text-white-50 mb-2" href="rental.html"><i class="fa fa-angle-right mr-2"></i>Services</a>
+                    <a class="text-white-50 mb-2" href="blogs.html"><i class="fa fa-angle-right mr-2"></i>Blog</a>
+                    <a class="text-white-50 mb-2" href="account.html?login"><i class="fa fa-angle-right mr-2"></i>Account</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
-                <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Contact Us</h5>
+                <!-- <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Contact Us</h5>
                 <p><i class="fa fa-map-marker-alt mr-2"></i>123 Street, New York, USA</p>
                 <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
                 <p><i class="fa fa-envelope mr-2"></i>info@example.com</p>
@@ -808,7 +780,7 @@
                             <button class="btn btn-primary px-3">Sign Up</button>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -846,6 +818,13 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>
+        window.onload = function () {
+            //savithamohi1976272002
+            const queryString = window.location.search;
+            console.log(queryString);
+        }
+    </script>    
 </body>
 
 </html>
