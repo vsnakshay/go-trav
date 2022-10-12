@@ -265,7 +265,7 @@
             
             var usertxt = document.getElementById('usertxt');
 
-            const user = await _supabase.auth.user();
+            const {data: {user}} = await _supabase.auth.getUser();
 
             if(user) {
                 usertxt.innerHTML = user.email;
@@ -293,15 +293,14 @@
            }else { 
                 accounti.className = "fa fa-spinner fa-spin";
                 accounti.innerText = "";
-                const user = await _supabase.auth.user();
+                const {data: {user}} = await _supabase.auth.getUser();
                 
                 const imagepath = 'public/' + user.id + '/' + file.name;
                 const { data, error } = await _supabase
                 .storage
                 .from('user')
                 .upload(imagepath, file, {
-                    cacheControl: '3600',
-                    upsert: false
+                    upsert: true
                 })
 
                 if(error) {
@@ -310,7 +309,8 @@
                     accounti.innerText = "Post";
                 }   
                 if(data) {
-                    const { publicURL, error } = await _supabase.storage
+                    console.log(data);
+                    const { data : {publicUrl}, error } = await _supabase.storage
                     .from('user')
                     .getPublicUrl(imagepath);
                     if(error) {
@@ -318,23 +318,23 @@
                         accounti.className = "";
                         accounti.innerText = "Post";
                     }  
-                    if(publicURL) {
-                        console.log(publicURL);
-                        const { data, error } = await _supabase
+                    if(publicUrl) {
+                        console.log(publicUrl);
+                        const { error } = await _supabase
                         .from('posts')
                         .insert([
-                            { name: name, title: title, description: description, image: publicURL, posted_by: user.id }
-                        ])
+                            { name: name, title: title, description: description, image: publicUrl, posted_by: user.id }
+                        ], {
+                            upsert: true
+                        })
                         if(error) {
                             alert(error.message);
                             accounti.className = "";
                             accounti.innerText = "Post";
                         }  
-                        if(data) {
-                            accounti.className = "";
-                            accounti.innerText = "Post";
-                            alert("Post created successfully");
-                        }
+                        accounti.className = "";
+                        accounti.innerText = "Post";
+                        alert("Post created successfully");
                     }
 
                 }

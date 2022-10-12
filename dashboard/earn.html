@@ -264,7 +264,7 @@
             
             var usertxt = document.getElementById('usertxt');
 
-            const user = await _supabase.auth.user();
+            const {data: {user}} = await _supabase.auth.getUser();
 
             if(user) {
                 usertxt.innerHTML = user.email;
@@ -292,7 +292,7 @@
            }else { 
                 accounti.className = "fa fa-spinner fa-spin";
                 accounti.innerText = "";
-                const user = await _supabase.auth.user();
+                const {data: {user}} = await _supabase.auth.getUser();
                 
                 const imagepath = 'public/' + user.id + '/' + file.name;
                 const { data, error } = await _supabase

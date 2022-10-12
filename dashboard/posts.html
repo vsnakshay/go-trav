@@ -368,7 +368,7 @@
             
             var usertxt = document.getElementById('usertxt');
 
-            const user = await _supabase.auth.user();
+            const {data: {user}} = await _supabase.auth.getUser();
 
             if(!user) {
                 window.location.href = "../account.html?login";
@@ -383,14 +383,23 @@
                     alert(error.message);
                     accounti.className = "";
                 }
-                if(data) {
+                if(data.length == 0) {
+                    condata += `
+                        <div class="col-md-6 mb-4 pb-2">
+                            <div class="blog-item">
+                                <p>No Posts yet</p>
+                            </div>
+                        </div>`
+                    con.innerHTML = condata;
+                    accounti.className = "";
+                }else if(data) {
                     console.log(data);
                     for(var i = 0; i < data.length; i++) {
                         condata += `
                         <div class="col-md-6 mb-4 pb-2">
                             <div class="blog-item">
-                                <div class="position-relative">
-                                    <img class="img-fluid" src='${data[i].image}'>
+                                <div class="position-relative" style="max-width:100%; height:auto;">
+                                    <img class="img-fluid" width='100%' height='30%' style="height:300px; object-fit: cover;" src='${data[i].image}'>
                                     <div class="blog-date">
                                         <h6 class="font-weight-bold mb-n1">${new Date(data[i].created_at).toLocaleString('en-us',{month:'short', day:'numeric', year:'numeric'})}</h6>
                                     </div>
@@ -408,74 +417,6 @@
                     accounti.className = "";
                 }
             }
-
-        }
-
-        
-        const fileSelector = document.getElementById('file');
-        fileSelector.addEventListener('change', (event) => {
-            file = event.target.files[0];
-            console.log(file);
-        });
-
-        async function post() {
-            var name = document.getElementById('name').value;
-            var title = document.getElementById('title').value;
-            var description = document.getElementById('description').value;
-            //var file = document.getElementById('file');
-            var accounti = document.getElementById('accounti');
-
-           if(name == "" || title == "" || description == "" || file == null) {
-               alert("Please fill all the fields");
-           }else { 
-                accounti.className = "fa fa-spinner fa-spin";
-                accounti.innerText = "";
-                const user = await _supabase.auth.user();
-                
-                const imagepath = 'public/' + user.id + '/' + file.name;
-                const { data, error } = await _supabase
-                .storage
-                .from('user')
-                .upload(imagepath, file, {
-                    cacheControl: '3600',
-                    upsert: false
-                })
-
-                if(error) {
-                    alert(error.message);
-                    accounti.className = "";
-                    accounti.innerText = "Post";
-                }   
-                if(data) {
-                    const { publicURL, error } = await _supabase.storage
-                    .from('user')
-                    .getPublicUrl(imagepath);
-                    if(error) {
-                        alert(error.message);
-                        accounti.className = "";
-                        accounti.innerText = "Post";
-                    }  
-                    if(publicURL) {
-                        console.log(publicURL);
-                        const { data, error } = await _supabase
-                        .from('posts')
-                        .insert([
-                            { name: name, title: title, description: description, image: publicURL, posted_by: user.id }
-                        ])
-                        if(error) {
-                            alert(error.message);
-                            accounti.className = "";
-                            accounti.innerText = "Post";
-                        }  
-                        if(data) {
-                            accounti.className = "";
-                            accounti.innerText = "Post";
-                            alert("Post created successfully");
-                        }
-                    }
-
-                }
-           }
 
         }
 

@@ -25,9 +25,6 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 
-    <!--- Supabase -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-    <script src="js/supabaseClient.js"></script>
 </head>
 
 <body>
@@ -227,6 +224,10 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <!--- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="js/supabaseClient.js"></script>
     <script>
         const queryString = window.location.search;
 
@@ -235,8 +236,8 @@
             var otacccount = document.getElementById('otacccount');
             var accounttxt = document.getElementById('accounttxt');
             
-            const user = await _supabase.auth.user();
-
+            const {data: { user }} = await _supabase.auth.getUser();
+            console.log(user);
             if(user) {
                 window.location.href = "dashboard/index.html";
 
@@ -256,6 +257,7 @@
         }
 
         async function account() {
+
             var email = document.getElementById('email').value;
             var pwd = document.getElementById('pwd').value;
             var accounti = document.getElementById('accounti');
@@ -266,13 +268,13 @@
                 accounti.className = "fa fa-spinner fa-spin";
                 accounti.innerText = "";
                 if(queryString == "?create-account"){
-                    const { user, session, error } = await _supabase.auth.signUp({
+                    const { data: {user, session} , error } = await _supabase.auth.signUp({
                         email: email,
                         password: pwd,
                     });
                     if(error) {
-                        accounti.className = "fa fa-spinner fa-spin";
-                        accounti.innerText = "";
+                        accounti.className = "";
+                        accounti.innerText = "Submit";
                         alert(error.message);
                     }
                     if(user) {
@@ -281,7 +283,7 @@
                         window.location.href = "dashboard/index.html";
                     }
                 }else {
-                    const { user, session, error } = await _supabase.auth.signIn({
+                    const { data: {user, session}, error } = await _supabase.auth.signInWithPassword({
                         email: email,
                         password: pwd,
                     })

@@ -438,7 +438,7 @@
         window.onload = async function () {
             var title = document.getElementById('posttitle');
             var accounti = document.getElementById('accounti');
-            const queryString = window.location.search;
+            const queryString = (window.location.search).replace(/%20/g, ' ');
             const postTitle = queryString.replace('?', '');
             var con = document.getElementById('container'); 
             var condata = ``;
